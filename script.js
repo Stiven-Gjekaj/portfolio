@@ -100,6 +100,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: 'Nation Incremental',
+    description: 'A browser-based incremental game. Grow your nation and progress over time.',
+    tags: ['JavaScript', 'Game'],
+    demo: 'https://stiven-gjekaj.github.io/nation-incremental/',
+    repo: '',
+  },
+  {
     title: 'Project One',
     description: 'A concise description of what this project does and why it matters.',
     tags: ['TypeScript', 'React', 'Vite'],
