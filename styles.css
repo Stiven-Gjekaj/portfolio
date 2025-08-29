@@ -194,7 +194,11 @@ body {
 [data-device="mobile"] .brand { display: none; }
 
 /* Mobile: float theme toggle bottom-left */
-[data-device="mobile"] #themeToggle {
+/* Hide any header-embedded toggle; use floating one */
+.site-header #themeToggle { display: none !important; }
+
+/* Floating theme toggle (all devices) */
+#themeToggle.floating-toggle {
   position: fixed;
   left: 12px;
   bottom: 12px;
@@ -202,6 +206,18 @@ body {
   height: 44px;
   border-radius: 999px;
   z-index: 100;
+  color: var(--text);
+  background: var(--surface);
+  border: 1px solid var(--border);
   box-shadow: 0 6px 18px rgba(0,0,0,.35);
   backdrop-filter: blur(6px) saturate(120%);
+  display: inline-grid;
+  place-items: center;
+  user-select: none;
+  touch-action: none;
+  cursor: grab;
 }
+#themeToggle.floating-toggle:active { cursor: grabbing; }
+
+/* Center header content on mobile */
+[data-device="mobile"] .site-header .header-inner { justify-content: center; }

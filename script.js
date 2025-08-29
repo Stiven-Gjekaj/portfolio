@@ -20,6 +20,72 @@ document.getElementById('themeToggle')?.addEventListener('click', () => {
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Ensure theme button shows correct icon and support draggable floating toggle
+(function enhanceThemeToggle() {
+  // Target the floating button specifically
+  const btn = document.querySelector('#themeToggle.floating-toggle');
+  if (!btn) return;
+
+  function updateThemeButton() {
+    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    btn.textContent = isLight ? '🌙' : '☀️';
+  }
+
+  // Correct icon initially; toggle theme on click
+  updateThemeButton();
+  btn.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isLight = root.getAttribute('data-theme') === 'light';
+    const next = isLight ? 'dark' : 'light';
+    root.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+    updateThemeButton();
+  });
+
+  // Restore saved position
+  try {
+    const saved = JSON.parse(localStorage.getItem('themeTogglePos') || 'null');
+    if (saved && typeof saved.left === 'number' && typeof saved.top === 'number') {
+      btn.style.left = saved.left + 'px';
+      btn.style.top = saved.top + 'px';
+      btn.style.bottom = 'auto';
+      btn.style.right = 'auto';
+    }
+  } catch {}
+
+  // Pointer-based dragging (works for mouse and touch)
+  let dragging = false;
+  let startX = 0, startY = 0, startLeft = 0, startTop = 0;
+  const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
+
+  btn.addEventListener('pointerdown', (e) => {
+    dragging = true;
+    btn.setPointerCapture?.(e.pointerId);
+    const r = btn.getBoundingClientRect();
+    startX = e.clientX; startY = e.clientY;
+    startLeft = r.left; startTop = r.top;
+    e.preventDefault();
+  });
+  window.addEventListener('pointermove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    const nl = clamp(startLeft + dx, 6, window.innerWidth - btn.offsetWidth - 6);
+    const nt = clamp(startTop + dy, 6, window.innerHeight - btn.offsetHeight - 6);
+    btn.style.left = nl + 'px';
+    btn.style.top = nt + 'px';
+    btn.style.bottom = 'auto';
+    btn.style.right = 'auto';
+  });
+  window.addEventListener('pointerup', (e) => {
+    if (!dragging) return;
+    dragging = false;
+    btn.releasePointerCapture?.(e.pointerId);
+    const r = btn.getBoundingClientRect();
+    localStorage.setItem('themeTogglePos', JSON.stringify({ left: r.left, top: r.top }));
+  });
+})();
+
 // Device detection (adds data-device="mobile" or "desktop" on <html>)
 (function deviceFlag() {
   const setFlag = () => {
