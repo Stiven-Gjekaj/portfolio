@@ -20,6 +20,17 @@ document.getElementById('themeToggle')?.addEventListener('click', () => {
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Device detection (adds data-device="mobile" or "desktop" on <html>)
+(function deviceFlag() {
+  const setFlag = () => {
+    const isMobile = window.matchMedia('(max-width: 768px)').matches || (navigator.maxTouchPoints > 0 && window.innerWidth <= 900);
+    document.documentElement.setAttribute('data-device', isMobile ? 'mobile' : 'desktop');
+  };
+  setFlag();
+  window.addEventListener('resize', setFlag, { passive: true });
+  window.addEventListener('orientationchange', setFlag, { passive: true });
+})();
+
 // Projects data & render
 const projects = [
   {

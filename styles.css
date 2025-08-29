@@ -180,3 +180,15 @@ body {
   .hero-inner { grid-template-columns: 1fr; }
   .contact .row { grid-template-columns: 1fr; }
 }
+
+/* Mobile-specific tweaks (JS sets data-device="mobile") */
+[data-device="mobile"] .container { padding: 0 16px; }
+[data-device="mobile"] .site-header .header-inner { height: 56px; }
+[data-device="mobile"] .hero { padding: 48px 0 28px; }
+[data-device="mobile"] .hero-copy h1 { font-size: clamp(24px, 7vw, 32px); }
+[data-device="mobile"] .lead { font-size: 16px; }
+[data-device="mobile"] .hero-art .blob { display: none; }
+[data-device="mobile"] .avatar { position: static; transform: none; margin: 0 auto 14px; width: 160px; }
+[data-device="mobile"] .section { padding: 56px 0; }
+[data-device="mobile"] .btn { padding: 10px 14px; }
+[data-device="mobile"] .nav a { padding: 8px 8px; }
