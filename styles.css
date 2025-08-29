@@ -187,8 +187,21 @@ body {
 [data-device="mobile"] .hero { padding: 48px 0 28px; }
 [data-device="mobile"] .hero-copy h1 { font-size: clamp(24px, 7vw, 32px); }
 [data-device="mobile"] .lead { font-size: 16px; }
-[data-device="mobile"] .hero-art .blob { display: none; }
-[data-device="mobile"] .avatar { position: static; transform: none; margin: 0 auto 14px; width: 160px; }
 [data-device="mobile"] .section { padding: 56px 0; }
 [data-device="mobile"] .btn { padding: 10px 14px; }
-[data-device="mobile"] .nav a { padding: 8px 8px; }
+[data-device="mobile"] .nav { flex-wrap: wrap; justify-content: center; gap: 8px; }
+[data-device="mobile"] .nav a { padding: 8px 10px; }
+[data-device="mobile"] .brand { display: none; }
+
+/* Mobile: float theme toggle bottom-left */
+[data-device="mobile"] #themeToggle {
+  position: fixed;
+  left: 12px;
+  bottom: 12px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+  z-index: 100;
+  box-shadow: 0 6px 18px rgba(0,0,0,.35);
+  backdrop-filter: blur(6px) saturate(120%);
+}
