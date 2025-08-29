@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Stiven Gjekaj — Portfolio</title>
+    <meta name="description" content="Portfolio of Your Name: projects, skills, and contact." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a href="#home" class="brand" aria-label="Homepage">Stiven Gjekaj</a>
+        <nav class="nav" aria-label="Primary">
+          <button id="themeToggle" class="btn btn-outline" aria-label="Toggle theme">🌙</button>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+          <a href="assets/Stiven_Gjekaj_Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero">
+        <div class="container hero-inner">
+          <div class="hero-copy">
+            <h1>Hi, I’m <span class="accent">Stiven Gjekaj</span>.</h1>
+            <p class="lead">
+              I build performant, accessible web experiences. Here’s a selection of my recent work and a bit about me.
+            </p>
+            <div class="actions">
+              <a class="btn" href="#projects">View Projects</a>
+              <a class="btn btn-outline" href="#contact">Get In Touch</a>
+              <a class="btn btn-outline" href="assets/Stiven_Gjekaj_Resume.pdf" target="_blank" rel="noreferrer">Resume ↗</a>
+            </div>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="blob">
+              <defs>
+                <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--accent-500)" />
+                  <stop offset="100%" stop-color="var(--accent-300)" />
+                </linearGradient>
+              </defs>
+              <path fill="url(#g)" d="M38.2,-58C50.9,-50.6,63.4,-42.6,69.8,-31.1C76.2,-19.6,76.5,-4.6,73,9.1C69.5,22.8,62.1,35.2,51.6,44.9C41,54.6,27.2,61.7,12.4,67.1C-2.4,72.5,-18.2,76.2,-30.9,71.3C-43.6,66.5,-53.3,53.1,-61.4,39.1C-69.5,25.1,-75.9,10.5,-74.5,-3.4C-73.1,-17.3,-64,-30.5,-52.9,-38.9C-41.8,-47.3,-28.7,-50.9,-16.2,-57.4C-3.7,-64,7.3,-73.6,18.3,-74.3C29.3,-75.1,40.2,-66.1,38.2,-58Z" transform="translate(100 100)" />
+            </svg>
+            <div class="avatar" role="img" aria-label="Photo of Stiven Gjekaj">
+              <img src="assets/avatar-placeholder.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2>About</h2>
+          <p>
+            I’m a developer focused on crafting clean, delightful user experiences. I enjoy working across the stack with a bias toward front-end performance and accessibility.
+          </p>
+          <div class="skills">
+            <div>
+              <h3>Core</h3>
+              <ul>
+                <li>HTML • CSS • JavaScript</li>
+                <li>TypeScript • React • Next.js</li>
+                <li>Node.js • Express</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Tools</h3>
+              <ul>
+                <li>Git • GitHub • CI/CD</li>
+                <li>Vite • Webpack • Jest</li>
+                <li>Figma • Accessibility</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2>Projects</h2>
+          <div id="projectGrid" class="projects"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <div class="container">
+          <h2>Contact</h2>
+          <p>Have a question or want to work together? Drop a line.</p>
+          <form id="contactForm" class="contact" novalidate>
+            <div class="row">
+              <label>
+                <span>Name</span>
+                <input type="text" name="name" required />
+              </label>
+              <label>
+                <span>Email</span>
+                <input type="email" name="email" required />
+              </label>
+            </div>
+            <label>
+              <span>Message</span>
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+            <div class="actions">
+              <button class="btn" type="submit">Send</button>
+              <a class="btn btn-outline" href="mailto:stivenagostingjekaj@gmail.com">Email Me</a>
+            </div>
+            <p id="formNote" class="note" role="status" aria-live="polite"></p>
+          </form>
+          <div class="direct-contacts">
+            <a href="mailto:stivenagostingjekaj@gmail.com">stivenagostingjekaj@gmail.com</a>
+            <span>•</span>
+            <a href="tel:+355675703891">+355 067 570 3891</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <div class="socials">
+          <a href="https://instagram.com/stivengj3kaj" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/in/stiven-gjekaj-4026b436b" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:stivenagostingjekaj@gmail.com" target="_blank" rel="noreferrer">Email</a>
+          <a href="tel:+355675703891">Phone</a>
+        </div>
+        <p>© <span id="year"></span> Stiven Gjekaj. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
