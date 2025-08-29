@@ -120,13 +120,6 @@ const projects = [
     demo: '#',
     repo: '#',
   },
-  {
-    title: 'Project Three',
-    description: 'Details: problem, solution, and the outcome or metrics.',
-    tags: ['Next.js', 'Tailwind', 'SSR'],
-    demo: '#',
-    repo: '#',
-  },
 ];
 
 function renderProjects() {
