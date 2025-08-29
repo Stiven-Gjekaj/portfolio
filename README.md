@@ -1,28 +1,26 @@
 # Stiven Gjekaj — Portfolio
 
-A fast, responsive personal portfolio with About, Projects, and Contact sections, plus dark/light theme and an avatar placeholder.
+Welcome! This repository contains my personal portfolio site. Here you can explore a selection of projects, learn a bit about me, and find ways to get in touch.
 
-## Preview
-- Open `index.html` directly in your browser, or
-- Use a simple static server for live reload (e.g., VS Code Live Server).
+## What You'll Find
+- About: a short introduction and skills snapshot
+- Projects: highlights with brief descriptions and tech used
+- Contact: quick ways to reach me
+- Theme: light/dark toggle for comfortable reading
 
-## Customize
-- Name & copy: edit `index.html`
-- Projects: edit the `projects` array in `script.js`
-- Avatar: replace `assets/avatar-placeholder.svg` with your photo and update the `img` `src`
-- Resume: place your PDF at `assets/Stiven_Gjekaj_Resume.pdf`
-- Colors/spacing: tweak CSS variables at the top of `styles.css`
+## View the Site
+- Open `index.html` to browse locally, or
+- Visit the deployed site via GitHub Pages (see the repo’s Pages link if available)
 
-## Structure
-- `index.html` — markup and sections
-- `styles.css` — styles, theme variables, layout
-- `script.js` — theme toggle, projects render, contact note
-- `assets/` — images and resume PDF
+## Quick Links
+- Resume: `assets/Stiven_Gjekaj_Resume.pdf` (if present in this repo)
+- Email: stivenagostingjekaj@gmail.com
+- Phone: +355 067 570 3891
+- LinkedIn: https://www.linkedin.com/in/stiven-gjekaj-4026b436b
+- Instagram: https://instagram.com/stivengj3kaj
 
-## Deploy (GitHub Pages)
-1. Create a GitHub repository and push this folder.
-2. In GitHub: Settings → Pages → Deploy from branch → `main` (root).
-3. The site will be available at `https://<your-user>.github.io/<repo>/`.
+## Tech
+- HTML, CSS, and a small amount of JavaScript
+- Responsive layout with accessibility in mind
 
-## License
-You can keep this private or add a license if you plan to open source it.
+Thanks for visiting!
