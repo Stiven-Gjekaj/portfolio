@@ -81,8 +81,11 @@ form?.addEventListener('submit', (e) => {
     return;
   }
 
-  // Simulate send — replace with your backend or a service like Formspree
-  note.textContent = 'Thanks! Your message has been noted (demo).';
-  form.reset();
+  // Open the user's email client with a prefilled message
+  const to = 'stivenagostingjekaj@gmail.com';
+  const subject = `Portfolio contact from ${name}`;
+  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+  const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  note.textContent = 'Opening your email app…';
+  window.location.href = href;
 });
-
