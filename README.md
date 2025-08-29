@@ -10,7 +10,7 @@ Welcome! This repository contains my personal portfolio site. Here you can explo
 
 
 ## Quick Links
-- Resume: assets/resume.pdf
+- Resume: [assets/resume.pdf](https://github.com/Stiven-Gjekaj/portfolio/blob/main/assets/resume.pdf)
 - Email: stivenagostingjekaj@gmail.com
 - Phone: +355 067 570 3891
 - LinkedIn: https://www.linkedin.com/in/stiven-gjekaj-4026b436b
