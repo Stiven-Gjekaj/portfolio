@@ -113,13 +113,13 @@ const projects = [
     demo: 'https://stiven-gjekaj.github.io/background-remover/',
     repo: 'https://github.com/stiven-gjekaj/background-remover',
   },
-  // {
-  //   title: 'Project One',
-  //   description: 'A concise description of what this project does and why it matters.',
-  //   tags: ['TypeScript', 'React', 'Vite'],
-  //   demo: '#',
-  //   repo: '#',
-  // },
+  {
+    title: 'Artwork Museum',
+    description: 'Sleek, accessible gallery powered by The Met Collection API.',
+    tags: ['JavaScript', 'API', 'The Met'],
+    demo: 'https://stiven-gjekaj.github.io/art-museum/',
+    repo: 'https://github.com/stiven-gjekaj/art-museum',
+  },
 ];
 
 function renderProjects() {
