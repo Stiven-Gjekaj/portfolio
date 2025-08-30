@@ -114,11 +114,11 @@ const projects = [
     repo: '#',
   },
   {
-    title: 'Project Two',
-    description: 'Highlights: performance, accessibility, clean APIs, and great UX.',
-    tags: ['Node.js', 'Express', 'REST'],
-    demo: '#',
-    repo: '#',
+    title: 'Background Remover',
+    description: 'Client-side background removal with MediaPipe Selfie Segmentation. Upload, refine feathering, and download PNG — privacy-friendly (no uploads).',
+    tags: ['JavaScript', 'HTML/CSS', 'MediaPipe'],
+    demo: 'https://stiven-gjekaj.github.io/background-remover/',
+    repo: 'https://github.com/stiven-gjekaj/background-remover',
   },
 ];
 
