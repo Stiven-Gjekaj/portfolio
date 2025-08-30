@@ -104,22 +104,22 @@ const projects = [
     description: 'A browser-based incremental game. Grow your nation and progress over time.',
     tags: ['JavaScript', 'Game'],
     demo: 'https://stiven-gjekaj.github.io/nation-incremental/',
-    repo: '',
-  },
-  {
-    title: 'Project One',
-    description: 'A concise description of what this project does and why it matters.',
-    tags: ['TypeScript', 'React', 'Vite'],
-    demo: '#',
-    repo: '#',
+    repo: 'https://github.com/stiven-gjekaj/nation-incremental',
   },
   {
     title: 'Background Remover',
-    description: 'Client-side background removal with MediaPipe Selfie Segmentation. Upload, refine feathering, and download PNG — privacy-friendly (no uploads).',
+    description: 'Client-side background remover using MediaPipe; fast and private.',
     tags: ['JavaScript', 'HTML/CSS', 'MediaPipe'],
     demo: 'https://stiven-gjekaj.github.io/background-remover/',
     repo: 'https://github.com/stiven-gjekaj/background-remover',
   },
+  // {
+  //   title: 'Project One',
+  //   description: 'A concise description of what this project does and why it matters.',
+  //   tags: ['TypeScript', 'React', 'Vite'],
+  //   demo: '#',
+  //   repo: '#',
+  // },
 ];
 
 function renderProjects() {
