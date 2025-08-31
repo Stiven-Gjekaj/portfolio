@@ -105,6 +105,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: 'AI Connect 4',
+    description: 'Connect 4 with Minimax + alpha-beta; hints, undo, difficulty.',
+    tags: ['JavaScript', 'Game', 'AI', 'Minimax'],
+    demo: 'https://stiven-gjekaj.github.io/AI-Connect4/',
+    repo: 'https://github.com/Stiven-Gjekaj/AI-Connect4',
+  },
+  {
     title: 'Nation Incremental',
     description: 'A browser-based incremental game. Grow your nation and progress over time.',
     tags: ['JavaScript', 'Game'],
