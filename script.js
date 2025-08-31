@@ -146,8 +146,8 @@ function renderProjects() {
       <p>${p.description}</p>
       <div class="tags">${p.tags.map((t) => `<span class=\"tag\">${t}</span>`).join('')}</div>
       <div class="links">
-        ${p.demo ? `<a href=\"${p.demo}\" target=\"_blank\" rel=\"noreferrer\">Live &rarr;</a>` : ''}
-        ${p.repo ? `<a href=\"${p.repo}\" target=\"_blank\" rel=\"noreferrer\">Code &rarr;</a>` : ''}
+        ${p.demo ? `<a href=\"${p.demo}\" target=\"_blank\" rel=\"noreferrer\">Live &nearrow;</a>` : ''}
+        ${p.repo ? `<a href=\"${p.repo}\" target=\"_blank\" rel=\"noreferrer\">Code &nearrow;</a>` : ''}
       </div>
     `;
     grid.appendChild(el);
@@ -178,3 +178,4 @@ form?.addEventListener('submit', (e) => {
   note.textContent = 'Opening your email app...';
   window.location.href = href;
 });
+
