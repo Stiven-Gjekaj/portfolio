@@ -9,38 +9,43 @@
   }
 })();
 
-document.getElementById('themeToggle')?.addEventListener('click', () => {
+function updateThemeButtons() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const label = isLight ? '🌙' : '☀️';
+  document.querySelectorAll('#themeToggle').forEach((btn) => {
+    btn.textContent = label;
+    btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  });
+}
+
+function setTheme(next) {
   const root = document.documentElement;
-  const isLight = root.getAttribute('data-theme') === 'light';
-  root.setAttribute('data-theme', isLight ? 'dark' : 'light');
-  localStorage.setItem('theme', isLight ? 'dark' : 'light');
-  document.getElementById('themeToggle').textContent = isLight ? '🌙' : '☀️';
-});
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateThemeButtons();
+}
+
+// Initialize toggles
+(() => {
+  updateThemeButtons();
+  document.querySelectorAll('#themeToggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      setTheme(isLight ? 'dark' : 'light');
+    });
+  });
+})();
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Ensure theme button shows correct icon and support draggable floating toggle
+// Floating theme toggle enhancements (drag + persist)
 (function enhanceThemeToggle() {
-  // Target the floating button specifically
   const btn = document.querySelector('#themeToggle.floating-toggle');
   if (!btn) return;
 
-  function updateThemeButton() {
-    const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    btn.textContent = isLight ? '🌙' : '☀️';
-  }
-
-  // Correct icon initially; toggle theme on click
-  updateThemeButton();
-  btn.addEventListener('click', () => {
-    const root = document.documentElement;
-    const isLight = root.getAttribute('data-theme') === 'light';
-    const next = isLight ? 'dark' : 'light';
-    root.setAttribute('data-theme', next);
-    localStorage.setItem('theme', next);
-    updateThemeButton();
-  });
+  // Ensure correct icon initially
+  updateThemeButtons();
 
   // Restore saved position
   try {
@@ -120,6 +125,13 @@ const projects = [
     demo: 'https://stiven-gjekaj.github.io/art-museum/',
     repo: 'https://github.com/stiven-gjekaj/art-museum',
   },
+  {
+    title: 'Race Blitz',
+    description: 'Race-Blitz: lightweight racing sim manager.',
+    tags: ['JavaScript', 'Game', 'Simulation'],
+    demo: 'https://stiven-gjekaj.github.io/Race-Blitz/',
+    repo: 'https://github.com/stiven-gjekaj/Race-Blitz',
+  },
 ];
 
 function renderProjects() {
@@ -132,10 +144,10 @@ function renderProjects() {
     el.innerHTML = `
       <h3>${p.title}</h3>
       <p>${p.description}</p>
-      <div class="tags">${p.tags.map((t) => `<span class="tag">${t}</span>`).join('')}</div>
+      <div class="tags">${p.tags.map((t) => `<span class=\"tag\">${t}</span>`).join('')}</div>
       <div class="links">
-        ${p.demo ? `<a href="${p.demo}" target="_blank" rel="noreferrer">Live ↗</a>` : ''}
-        ${p.repo ? `<a href="${p.repo}" target="_blank" rel="noreferrer">Code ↗</a>` : ''}
+        ${p.demo ? `<a href=\"${p.demo}\" target=\"_blank\" rel=\"noreferrer\">Live &rarr;</a>` : ''}
+        ${p.repo ? `<a href=\"${p.repo}\" target=\"_blank\" rel=\"noreferrer\">Code &rarr;</a>` : ''}
       </div>
     `;
     grid.appendChild(el);
@@ -163,6 +175,6 @@ form?.addEventListener('submit', (e) => {
   const subject = `Portfolio contact from ${name}`;
   const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
   const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = 'Opening your email app…';
+  note.textContent = 'Opening your email app...';
   window.location.href = href;
 });
