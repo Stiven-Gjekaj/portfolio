@@ -13,7 +13,7 @@ function updateThemeButtons() {
   const isLight = document.documentElement.getAttribute('data-theme') === 'light';
   const label = isLight ? '🌙' : '☀️';
   document.querySelectorAll('#themeToggle').forEach((btn) => {
-    btn.textContent = label;
+    btn.textContent = isLight ? '🌙' : '🌞';
     btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
   });
 }
@@ -105,6 +105,13 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: 'Black & White Jack',
+    description: 'Pure JS blackjack with betting, split/double/surrender, keyboard shortcuts, sound, and offline (PWA).',
+    tags: ['JavaScript', 'Game', 'PWA', 'Canvas', 'Blackjack'],
+    demo: 'https://stiven-gjekaj.github.io/Black-And-White-Jack/',
+    repo: 'https://github.com/Stiven-Gjekaj/Black-And-White-Jack',
+  },
+  {
     title: 'AI Connect 4',
     description: 'Connect 4 with Minimax + alpha-beta; hints, undo, difficulty.',
     tags: ['JavaScript', 'Game', 'AI', 'Minimax'],
@@ -160,6 +167,17 @@ function renderProjects() {
     grid.appendChild(el);
   });
 }
+
+// Reorder: place Black & White Jack after AI Connect 4
+(() => {
+  const iB = projects.findIndex((p) => p.title === 'Black & White Jack');
+  const iC4 = projects.findIndex((p) => p.title === 'AI Connect 4');
+  if (iB !== -1 && iC4 !== -1 && iB < iC4) {
+    const [b] = projects.splice(iB, 1);
+    projects.splice(iC4 + 1, 0, b);
+  }
+})();
+
 renderProjects();
 
 // Contact form (front-end only)
@@ -185,4 +203,3 @@ form?.addEventListener('submit', (e) => {
   note.textContent = 'Opening your email app...';
   window.location.href = href;
 });
-
