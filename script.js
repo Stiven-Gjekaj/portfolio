@@ -105,6 +105,14 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: 'Wattpad4You',
+    description:
+      'CLI tool that downloads public Wattpad stories and compiles them into polished PDFs with bundled fonts.',
+    tags: ['Python', 'CLI', 'PDF'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/Wattpad4You',
+  },
+  {
     title: 'Black & White Jack',
     description: 'Pure JS blackjack with betting, split/double/surrender, keyboard shortcuts, sound, and offline (PWA).',
     tags: ['JavaScript', 'Game', 'PWA', 'Canvas', 'Blackjack'],
