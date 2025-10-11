@@ -105,54 +105,48 @@ document.getElementById('year').textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: 'SmartSpend',
+    description:
+      'Full-stack expense tracking with CSV import, receipt OCR scanning, and ML-powered categorization.',
+    tags: ['Python', 'FastAPI', 'React', 'TypeScript', 'PostgreSQL', 'Docker'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/SmartSpend',
+  },
+  {
+    title: 'Knot Labs',
+    description: 'Modular social media sandbox with media classification, face recognition, and full-text search.',
+    tags: ['Python', 'Machine Learning', 'FAISS', 'Search'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/Knot-Labs',
+  },
+  {
+    title: 'GoQuorra',
+    description: 'Lightweight, distributed job queue for Go with reliability, observability, and Prometheus metrics.',
+    tags: ['Go', 'PostgreSQL', 'gRPC', 'Redis', 'Docker'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/GoQuorra',
+  },
+  {
+    title: 'RogueBit',
+    description: 'Turn-based roguelike dungeon crawler with procedural generation and terminal-style graphics.',
+    tags: ['C#', '.NET 8', 'Game', 'Roguelike'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/RogueBit',
+  },
+  {
+    title: 'AI Connect 4',
+    description: 'Connect 4 with Minimax + alpha-beta pruning; hints, undo, and adjustable difficulty.',
+    tags: ['JavaScript', 'Game', 'AI', 'Minimax'],
+    demo: 'https://stiven-gjekaj.github.io/AI-Connect4/',
+    repo: 'https://github.com/Stiven-Gjekaj/AI-Connect4',
+  },
+  {
     title: 'Wattpad4You',
     description:
       'CLI tool that downloads public Wattpad stories and compiles them into polished PDFs with bundled fonts.',
     tags: ['Python', 'CLI', 'PDF'],
     demo: '',
     repo: 'https://github.com/Stiven-Gjekaj/Wattpad4You',
-  },
-  {
-    title: 'Black & White Jack',
-    description: 'Pure JS blackjack with betting, split/double/surrender, keyboard shortcuts, sound, and offline (PWA).',
-    tags: ['JavaScript', 'Game', 'PWA', 'Canvas', 'Blackjack'],
-    demo: 'https://stiven-gjekaj.github.io/Black-And-White-Jack/',
-    repo: 'https://github.com/Stiven-Gjekaj/Black-And-White-Jack',
-  },
-  {
-    title: 'AI Connect 4',
-    description: 'Connect 4 with Minimax + alpha-beta; hints, undo, difficulty.',
-    tags: ['JavaScript', 'Game', 'AI', 'Minimax'],
-    demo: 'https://stiven-gjekaj.github.io/AI-Connect4/',
-    repo: 'https://github.com/Stiven-Gjekaj/AI-Connect4',
-  },
-  {
-    title: 'Nation Incremental',
-    description: 'A browser-based incremental game. Grow your nation and progress over time.',
-    tags: ['JavaScript', 'Game'],
-    demo: 'https://stiven-gjekaj.github.io/nation-incremental/',
-    repo: 'https://github.com/stiven-gjekaj/nation-incremental',
-  },
-  {
-    title: 'Background Remover',
-    description: 'Client-side background remover using MediaPipe; fast and private.',
-    tags: ['JavaScript', 'HTML/CSS', 'MediaPipe'],
-    demo: 'https://stiven-gjekaj.github.io/background-remover/',
-    repo: 'https://github.com/stiven-gjekaj/background-remover',
-  },
-  {
-    title: 'Artwork Museum',
-    description: 'Sleek, accessible gallery powered by The Met Collection API.',
-    tags: ['JavaScript', 'API', 'The Met'],
-    demo: 'https://stiven-gjekaj.github.io/art-museum/',
-    repo: 'https://github.com/stiven-gjekaj/art-museum',
-  },
-  {
-    title: 'Race Blitz',
-    description: 'Race-Blitz: lightweight racing sim manager.',
-    tags: ['JavaScript', 'Game', 'Simulation'],
-    demo: 'https://stiven-gjekaj.github.io/Race-Blitz/',
-    repo: 'https://github.com/stiven-gjekaj/Race-Blitz',
   },
 ];
 
@@ -175,16 +169,6 @@ function renderProjects() {
     grid.appendChild(el);
   });
 }
-
-// Reorder: place Black & White Jack after AI Connect 4
-(() => {
-  const iB = projects.findIndex((p) => p.title === 'Black & White Jack');
-  const iC4 = projects.findIndex((p) => p.title === 'AI Connect 4');
-  if (iB !== -1 && iC4 !== -1 && iB < iC4) {
-    const [b] = projects.splice(iB, 1);
-    projects.splice(iC4 + 1, 0, b);
-  }
-})();
 
 renderProjects();
 
