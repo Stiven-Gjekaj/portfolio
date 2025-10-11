@@ -12,7 +12,7 @@
 function updateThemeButtons() {
   const isLight = document.documentElement.getAttribute('data-theme') === 'light';
   const label = isLight ? '🌙' : '☀️';
-  document.querySelectorAll('#themeToggle').forEach((btn) => {
+  document.querySelectorAll('#themeToggle, #themeToggleHeader').forEach((btn) => {
     btn.textContent = isLight ? '🌙' : '🌞';
     btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
   });
@@ -28,7 +28,7 @@ function setTheme(next) {
 // Initialize toggles
 (() => {
   updateThemeButtons();
-  document.querySelectorAll('#themeToggle').forEach((btn) => {
+  document.querySelectorAll('#themeToggle, #themeToggleHeader').forEach((btn) => {
     btn.addEventListener('click', () => {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       setTheme(isLight ? 'dark' : 'light');
@@ -38,6 +38,29 @@ function setTheme(next) {
 
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// Contact dropdown toggle
+(function contactDropdown() {
+  const dropdownToggle = document.querySelector('.nav-dropdown-toggle');
+  const dropdownMenu = document.querySelector('.nav-dropdown-menu');
+
+  if (!dropdownToggle || !dropdownMenu) return;
+
+  dropdownToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = dropdownToggle.getAttribute('aria-expanded') === 'true';
+    dropdownToggle.setAttribute('aria-expanded', !isExpanded);
+    dropdownMenu.classList.toggle('active');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdownToggle.contains(e.target) && !dropdownMenu.contains(e.target)) {
+      dropdownToggle.setAttribute('aria-expanded', 'false');
+      dropdownMenu.classList.remove('active');
+    }
+  });
+})();
 
 // Mobile menu toggle
 (function mobileMenu() {
@@ -52,7 +75,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
     nav.classList.toggle('active');
   });
 
-  // Close menu when clicking a nav link
+  // Close menu when clicking a nav link (but not dropdown toggle)
   nav.querySelectorAll('a').forEach(link => {
     link.addEventListener('click', () => {
       toggle.setAttribute('aria-expanded', 'false');
