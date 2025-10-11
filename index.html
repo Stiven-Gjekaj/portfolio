@@ -13,13 +13,16 @@
   <body>
     <header class="site-header">
       <div class="container header-inner">
-        <a href="#home" class="brand" aria-label="Homepage">Stiven Gjekaj</a>
+        <div class="socials">
+          <a href="https://instagram.com/stivengj3kaj" target="_blank" rel="noreferrer">Instagram</a>
+          <a href="https://www.linkedin.com/in/stiven-gjekaj-4026b436b" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="mailto:stivenagostingjekaj@gmail.com" target="_blank" rel="noreferrer">Email</a>
+          <a href="tel:+355675703891">Phone</a>
+        </div>
         <nav class="nav" aria-label="Primary">
           <button id="themeToggle" class="btn btn-outline" aria-label="Toggle theme">☀️</button>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-          <a href="assets/resume.pdf" target="_blank" rel="noreferrer">Resume</a>
         </nav>
       </div>
     </header>
@@ -30,7 +33,7 @@
           <div class="hero-copy">
             <h1>Hi, I'm <span class="accent">Stiven Gjekaj</span>.</h1>
             <p class="lead">
-              I build performant, accessible web experiences. Here's a selection of my recent work and a bit about me.
+              I build full-stack applications from distributed systems and APIs to ML-powered tools and interactive experiences. Here's a selection of my work.
             </p>
             <div class="actions">
               <a class="btn" href="#projects">View Projects</a>
@@ -57,24 +60,49 @@
       <section id="about" class="section">
         <div class="container">
           <h2>About</h2>
-          <p>
-            I'm a backend-focused developer who loves turning product ideas into reliable services. I work primarily with Python and JavaScript to design APIs, automate workflows, and ship resilient systems that scale with business needs.
-          </p>
+          <div class="about-content">
+            <p>
+              I'm a full-stack developer who builds practical solutions across the entire technology stack. My approach combines robust backend engineering with thoughtful frontend experiences, always focusing on creating software that solves real problems.
+            </p>
+            <p>
+              On the backend, I specialize in building scalable APIs and distributed systems. I've developed job queue systems in Go with PostgreSQL for reliability, created expense tracking platforms with FastAPI and React, and built modular social media architectures with machine learning capabilities. I'm comfortable working with microservices, message queues, and designing systems that handle concurrent operations gracefully.
+            </p>
+            <p>
+              I also enjoy frontend development and creating interactive experiences. From building AI-powered games using minimax algorithms to implementing OCR-powered receipt scanning with React and TypeScript, I like bridging the gap between complex backend logic and intuitive user interfaces. I've worked with everything from canvas-based games to ML model integration in the browser.
+            </p>
+            <p>
+              Beyond traditional web development, I explore diverse areas like roguelike game development in C#, CLI tools for PDF generation, and vector search with FAISS. I'm driven by curiosity and the challenge of learning new technologies to build better solutions.
+            </p>
+          </div>
           <div class="skills">
             <div>
-              <h3>Core</h3>
+              <h3>Backend & Systems</h3>
               <ul>
                 <li>Python / FastAPI / Django</li>
-                <li>JavaScript / Node.js / Express</li>
-                <li>PostgreSQL / MongoDB / Redis</li>
+                <li>Go / gRPC</li>
+                <li>PostgreSQL / Redis</li>
+                <li>Distributed Systems / Job Queues</li>
+                <li>RESTful & Event-Driven APIs</li>
               </ul>
             </div>
             <div>
-              <h3>Tools</h3>
+              <h3>Frontend & ML</h3>
               <ul>
+                <li>React / TypeScript / JavaScript</li>
+                <li>Machine Learning / OCR / FAISS</li>
+                <li>Game Development / AI Algorithms</li>
+                <li>.NET / C#</li>
+                <li>Canvas API / WebGL</li>
+              </ul>
+            </div>
+            <div>
+              <h3>Tools & DevOps</h3>
+              <ul>
+                <li>Docker / Docker Compose</li>
                 <li>Git / GitHub Actions / CI/CD</li>
-                <li>Docker / Docker Compose / Testing (PyTest, Jest)</li>
-                <li>AWS / DigitalOcean / Linux</li>
+                <li>Prometheus / Observability</li>
+                <li>Testing (PyTest, Jest)</li>
+                <li>Linux / Shell Scripting</li>
               </ul>
             </div>
           </div>
@@ -88,48 +116,10 @@
         </div>
       </section>
 
-      <section id="contact" class="section">
-        <div class="container">
-          <h2>Contact</h2>
-          <p>Have a question or want to work together? Drop a line.</p>
-          <form id="contactForm" class="contact" novalidate>
-            <div class="row">
-              <label>
-                <span>Name</span>
-                <input type="text" name="name" required />
-              </label>
-              <label>
-                <span>Email</span>
-                <input type="email" name="email" required />
-              </label>
-            </div>
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="5" required></textarea>
-            </label>
-            <div class="actions">
-              <button class="btn" type="submit">Send</button>
-              <a class="btn btn-outline" href="mailto:stivenagostingjekaj@gmail.com">Email Me</a>
-            </div>
-            <p id="formNote" class="note" role="status" aria-live="polite"></p>
-          </form>
-          <div class="direct-contacts">
-            <a href="mailto:stivenagostingjekaj@gmail.com">stivenagostingjekaj@gmail.com</a>
-            <span>|</span>
-            <a href="tel:+355675703891">+355 067 570 3891</a>
-          </div>
-        </div>
-      </section>
     </main>
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <div class="socials">
-          <a href="https://instagram.com/stivengj3kaj" target="_blank" rel="noreferrer">Instagram</a>
-          <a href="https://www.linkedin.com/in/stiven-gjekaj-4026b436b" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a href="mailto:stivenagostingjekaj@gmail.com" target="_blank" rel="noreferrer">Email</a>
-          <a href="tel:+355675703891">Phone</a>
-        </div>
         <p>&copy; <span id="year"></span> Stiven Gjekaj. All rights reserved.</p>
       </div>
     </footer>

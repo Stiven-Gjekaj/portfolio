@@ -27,6 +27,35 @@ body {
   background: var(--bg);
   line-height: 1.6;
   scroll-behavior: smooth;
+  position: relative;
+}
+
+/* Animated background */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.4;
+  background:
+    radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      color-mix(in oklab, var(--accent-500) 15%, transparent 85%) 0%,
+      transparent 50%),
+    radial-gradient(ellipse 800px 600px at calc(var(--scroll-progress, 0%) * 1.5) calc(20% + var(--scroll-progress, 0%) * 0.5),
+      color-mix(in oklab, var(--accent-300) 8%, transparent 92%),
+      transparent),
+    radial-gradient(ellipse 600px 800px at calc(100% - var(--scroll-progress, 0%) * 1.2) calc(60% + var(--scroll-progress, 0%) * 0.3),
+      color-mix(in oklab, var(--accent-500) 6%, transparent 94%),
+      transparent);
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+[data-theme="light"] body::before {
+  opacity: 0.15;
 }
 
 .container {
@@ -97,8 +126,12 @@ body {
 .avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Sections */
-.section { padding: 72px 0; border-top: 1px solid var(--border); }
+.section { padding: 72px 0; border-top: 1px solid var(--border); position: relative; }
 .section h2 { font-size: 28px; margin: 0 0 16px; }
+
+.about-content { max-width: 800px; margin-bottom: 32px; }
+.about-content p { margin: 0 0 16px; line-height: 1.8; color: var(--muted); }
+.about-content p:last-child { margin-bottom: 0; }
 
 .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
 .skills h3 { margin: 10px 0; }
@@ -142,7 +175,8 @@ body {
 
 /* Footer */
 .site-footer { border-top: 1px solid var(--border); padding: 22px 0; }
-.footer-inner { display: flex; gap: 12px; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+.footer-inner { display: flex; justify-content: center; align-items: center; }
+.footer-inner p { margin: 0; color: var(--muted); }
 .socials { display: flex; gap: 12px; }
 .socials a { color: var(--muted); text-decoration: none; }
 .socials a:hover { color: var(--text); }

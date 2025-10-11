@@ -39,6 +39,50 @@ function setTheme(next) {
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
+// Animated background on scroll
+(function animatedBackground() {
+  const updateScrollProgress = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+    document.body.style.setProperty('--scroll-progress', `${progress}%`);
+  };
+
+  const updateMousePosition = (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    document.body.style.setProperty('--mouse-x', `${x}%`);
+    document.body.style.setProperty('--mouse-y', `${y}%`);
+  };
+
+  // Throttle mouse movement updates for performance
+  let mouseTicking = false;
+  window.addEventListener('mousemove', (e) => {
+    if (!mouseTicking) {
+      window.requestAnimationFrame(() => {
+        updateMousePosition(e);
+        mouseTicking = false;
+      });
+      mouseTicking = true;
+    }
+  });
+
+  // Update scroll progress
+  let scrollTicking = false;
+  window.addEventListener('scroll', () => {
+    if (!scrollTicking) {
+      window.requestAnimationFrame(() => {
+        updateScrollProgress();
+        scrollTicking = false;
+      });
+      scrollTicking = true;
+    }
+  }, { passive: true });
+
+  // Initialize
+  updateScrollProgress();
+})();
+
 // Floating theme toggle enhancements (drag + persist)
 (function enhanceThemeToggle() {
   const btn = document.querySelector('#themeToggle.floating-toggle');
@@ -171,27 +215,3 @@ function renderProjects() {
 }
 
 renderProjects();
-
-// Contact form (front-end only)
-const form = document.getElementById('contactForm');
-const note = document.getElementById('formNote');
-form?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const data = new FormData(form);
-  const name = data.get('name')?.toString().trim();
-  const email = data.get('email')?.toString().trim();
-  const message = data.get('message')?.toString().trim();
-
-  if (!name || !email || !message) {
-    note.textContent = 'Please fill out all fields.';
-    return;
-  }
-
-  // Open the user's email client with a prefilled message
-  const to = 'stivenagostingjekaj@gmail.com';
-  const subject = `Portfolio contact from ${name}`;
-  const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-  const href = `mailto:${to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  note.textContent = 'Opening your email app...';
-  window.location.href = href;
-});
