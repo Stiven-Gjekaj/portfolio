@@ -11,11 +11,11 @@
 
 function updateThemeButtons() {
   const isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  const label = isLight ? '🌙' : '☀️';
-  document.querySelectorAll('#themeToggle, #themeToggleHeader').forEach((btn) => {
+  const btn = document.getElementById('themeToggleHeader');
+  if (btn) {
     btn.textContent = isLight ? '🌙' : '🌞';
     btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
-  });
+  }
 }
 
 function setTheme(next) {
@@ -25,15 +25,16 @@ function setTheme(next) {
   updateThemeButtons();
 }
 
-// Initialize toggles
+// Initialize toggle
 (() => {
   updateThemeButtons();
-  document.querySelectorAll('#themeToggle, #themeToggleHeader').forEach((btn) => {
+  const btn = document.getElementById('themeToggleHeader');
+  if (btn) {
     btn.addEventListener('click', () => {
       const isLight = document.documentElement.getAttribute('data-theme') === 'light';
       setTheme(isLight ? 'dark' : 'light');
     });
-  });
+  }
 })();
 
 // Footer year
@@ -136,57 +137,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   updateScrollProgress();
 })();
 
-// Floating theme toggle enhancements (drag + persist)
-(function enhanceThemeToggle() {
-  const btn = document.querySelector('#themeToggle.floating-toggle');
-  if (!btn) return;
-
-  // Ensure correct icon initially
-  updateThemeButtons();
-
-  // Restore saved position
-  try {
-    const saved = JSON.parse(localStorage.getItem('themeTogglePos') || 'null');
-    if (saved && typeof saved.left === 'number' && typeof saved.top === 'number') {
-      btn.style.left = saved.left + 'px';
-      btn.style.top = saved.top + 'px';
-      btn.style.bottom = 'auto';
-      btn.style.right = 'auto';
-    }
-  } catch {}
-
-  // Pointer-based dragging (works for mouse and touch)
-  let dragging = false;
-  let startX = 0, startY = 0, startLeft = 0, startTop = 0;
-  const clamp = (v, min, max) => Math.min(Math.max(v, min), max);
-
-  btn.addEventListener('pointerdown', (e) => {
-    dragging = true;
-    btn.setPointerCapture?.(e.pointerId);
-    const r = btn.getBoundingClientRect();
-    startX = e.clientX; startY = e.clientY;
-    startLeft = r.left; startTop = r.top;
-    e.preventDefault();
-  });
-  window.addEventListener('pointermove', (e) => {
-    if (!dragging) return;
-    const dx = e.clientX - startX;
-    const dy = e.clientY - startY;
-    const nl = clamp(startLeft + dx, 6, window.innerWidth - btn.offsetWidth - 6);
-    const nt = clamp(startTop + dy, 6, window.innerHeight - btn.offsetHeight - 6);
-    btn.style.left = nl + 'px';
-    btn.style.top = nt + 'px';
-    btn.style.bottom = 'auto';
-    btn.style.right = 'auto';
-  });
-  window.addEventListener('pointerup', (e) => {
-    if (!dragging) return;
-    dragging = false;
-    btn.releasePointerCapture?.(e.pointerId);
-    const r = btn.getBoundingClientRect();
-    localStorage.setItem('themeTogglePos', JSON.stringify({ left: r.left, top: r.top }));
-  });
-})();
 
 // Device detection (adds data-device="mobile" or "desktop" on <html>)
 (function deviceFlag() {

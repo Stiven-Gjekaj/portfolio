@@ -80,24 +80,39 @@ body::before {
   justify-content: space-between;
   height: 64px;
   position: relative;
+  gap: 16px;
 }
 .theme-toggle-header {
   width: 40px;
   height: 36px;
+  flex-shrink: 0;
+  order: 1;
 }
 .brand {
   font-weight: 700;
   text-decoration: none;
   color: var(--text);
 }
-.nav { display: flex; gap: 14px; align-items: center; }
+.nav {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  order: 2;
+  flex-grow: 1;
+  justify-content: center;
+}
 .nav > a {
   color: var(--muted);
   text-decoration: none;
   padding: 8px 10px;
   border-radius: 8px;
+  white-space: nowrap;
 }
 .nav > a:hover { color: var(--text); background: var(--surface); }
+.mobile-menu-toggle {
+  order: 3;
+  flex-shrink: 0;
+}
 
 /* Contact dropdown in nav */
 .nav-dropdown {
@@ -308,15 +323,29 @@ body::before {
   .hero-inner { grid-template-columns: 1fr; }
   .contact .row { grid-template-columns: 1fr; }
 
-  /* Show mobile menu toggle, hide desktop nav elements */
+  /* Show mobile menu toggle */
   .mobile-menu-toggle { display: flex; }
-  .socials { display: none !important; }
 
-  /* Dropdown menu styling */
+  /* Fix header layout on mobile */
+  .header-inner {
+    height: 56px;
+  }
+
+  .theme-toggle-header {
+    order: 1;
+  }
+
+  .mobile-menu-toggle {
+    order: 2;
+    margin-left: auto;
+  }
+
+  /* Dropdown menu styling - aligned to right */
   .nav {
     position: absolute;
     top: 100%;
     right: 0;
+    left: auto;
     background: color-mix(in oklab, var(--bg) 95%, black 5%);
     border: 1px solid var(--border);
     border-top: none;
@@ -325,12 +354,15 @@ body::before {
     align-items: stretch;
     padding: 12px;
     min-width: 200px;
+    max-width: calc(100vw - 40px);
     gap: 4px;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    order: 3;
+    justify-content: flex-start;
   }
 
   .nav.active {
@@ -345,28 +377,56 @@ body::before {
     padding: 10px 12px;
   }
 
-  /* Contact dropdown in mobile menu */
+  /* Contact dropdown in mobile menu - separate expandable section */
   .nav-dropdown {
     width: 100%;
+    position: relative;
   }
 
   .nav-dropdown-toggle {
     width: 100%;
     justify-content: space-between;
     padding: 10px 12px;
+    background: transparent;
+    border-radius: 8px;
   }
 
+  .nav-dropdown-toggle:hover {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  /* Contact submenu - slides down when opened */
   .nav-dropdown-menu {
     position: static;
-    margin-top: 4px;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0;
     box-shadow: none;
     border: none;
     background: transparent;
-    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0.3s;
+  }
+
+  .nav-dropdown-menu.active {
+    max-height: 300px;
+    opacity: 1;
+    visibility: visible;
+    margin-top: 4px;
   }
 
   .nav-dropdown-menu a {
-    padding-left: 24px;
+    padding: 10px 12px 10px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    margin: 2px 0;
+    border-radius: 6px;
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: rgba(255, 255, 255, 0.08);
   }
 
   /* Center all content on mobile */
@@ -389,6 +449,15 @@ body::before {
   .projects {
     justify-items: center;
   }
+
+  /* Fix overflow/clipping issues */
+  .site-header {
+    overflow: visible;
+  }
+
+  .container {
+    overflow: visible;
+  }
 }
 
 /* Mobile-specific tweaks (JS sets data-device="mobile") */
@@ -400,31 +469,3 @@ body::before {
 [data-device="mobile"] .section { padding: 56px 0; }
 [data-device="mobile"] .btn { padding: 10px 14px; }
 
-/* Mobile: float theme toggle bottom-left */
-/* Hide any header-embedded toggle; use floating one */
-.site-header #themeToggle { display: none !important; }
-
-/* Floating theme toggle (all devices) */
-#themeToggle.floating-toggle {
-  position: fixed;
-  left: 12px;
-  bottom: 12px;
-  width: 44px;
-  height: 44px;
-  border-radius: 999px;
-  z-index: 100;
-  color: var(--text);
-  background: var(--surface);
-  border: 1px solid var(--border);
-  box-shadow: 0 6px 18px rgba(0,0,0,.35);
-  backdrop-filter: blur(6px) saturate(120%);
-  display: inline-grid;
-  place-items: center;
-  user-select: none;
-  touch-action: none;
-  cursor: grab;
-}
-#themeToggle.floating-toggle:active { cursor: grabbing; }
-
-/* Center header content on mobile */
-[data-device="mobile"] .site-header .header-inner { justify-content: center; }
