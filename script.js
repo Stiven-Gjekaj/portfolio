@@ -1,3 +1,42 @@
+// Theme handling
+(function themeInit() {
+  const root = document.documentElement;
+  const saved = localStorage.getItem('theme');
+  if (saved === 'light' || saved === 'dark') {
+    if (saved === 'light') root.setAttribute('data-theme', 'light');
+  } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+    root.setAttribute('data-theme', 'light');
+  }
+})();
+
+function updateThemeButtons() {
+  const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+  const btn = document.getElementById('themeToggleHeader');
+  if (btn) {
+    btn.textContent = isLight ? '🌙' : '🌞';
+    btn.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+  }
+}
+
+function setTheme(next) {
+  const root = document.documentElement;
+  root.setAttribute('data-theme', next);
+  localStorage.setItem('theme', next);
+  updateThemeButtons();
+}
+
+// Initialize toggle
+(() => {
+  updateThemeButtons();
+  const btn = document.getElementById('themeToggleHeader');
+  if (btn) {
+    btn.addEventListener('click', () => {
+      const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+      setTheme(isLight ? 'dark' : 'light');
+    });
+  }
+})();
+
 // Footer year
 document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -166,14 +205,12 @@ function renderProjects() {
     const el = document.createElement('article');
     el.className = 'card';
     el.innerHTML = `
-      <div>
-        <h3>${p.title}</h3>
-        <p>${p.description}</p>
-        <div class="tags">${p.tags.map((t) => `<span class=\"tag\">${t}</span>`).join('')}</div>
-        <div class="links">
-          ${p.demo ? `<a href=\"${p.demo}\" target=\"_blank\" rel=\"noopener noreferrer\">Live</a>` : ''}
-          ${p.repo ? `<a href=\"${p.repo}\" target=\"_blank\" rel=\"noopener noreferrer\">Code</a>` : ''}
-        </div>
+      <h3>${p.title}</h3>
+      <p>${p.description}</p>
+      <div class="tags">${p.tags.map((t) => `<span class=\"tag\">${t}</span>`).join('')}</div>
+      <div class="links">
+        ${p.demo ? `<a href=\"${p.demo}\" target=\"_blank\" rel=\"noreferrer\">Live &nearrow;</a>` : ''}
+        ${p.repo ? `<a href=\"${p.repo}\" target=\"_blank\" rel=\"noreferrer\">Code &nearrow;</a>` : ''}
       </div>
     `;
     grid.appendChild(el);
