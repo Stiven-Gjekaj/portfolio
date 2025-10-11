@@ -9,19 +9,9 @@
   --radius: 12px;
 }
 
-/* Light theme overrides */
-[data-theme="light"] {
-  --bg: #ffffff;
-  --surface: #f6f7fb;
-  --text: #0f172a;
-  --muted: #475569;
-  --border: #e4e7ee;
-}
-
 * { box-sizing: border-box; }
 html, body {
   height: 100%;
-  overflow-x: hidden;
   max-width: 100%;
 }
 body {
@@ -59,21 +49,15 @@ body::before {
   pointer-events: none;
 }
 
-[data-theme="light"] body::before {
-  opacity: 0.15;
-}
-
 .container {
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
   padding: 0 20px;
-  overflow-x: hidden;
 }
 
 main {
   width: 100%;
-  overflow-x: hidden;
 }
 
 /* Header */
@@ -88,16 +72,10 @@ main {
 .header-inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   height: 64px;
   position: relative;
   gap: 16px;
-}
-.theme-toggle-header {
-  width: 40px;
-  height: 36px;
-  flex-shrink: 0;
-  order: 1;
 }
 .brand {
   font-weight: 700;
@@ -108,8 +86,7 @@ main {
   display: flex;
   gap: 14px;
   align-items: center;
-  order: 2;
-  flex-grow: 1;
+  flex-grow: 0;
   justify-content: center;
 }
 .nav > a {
@@ -121,7 +98,8 @@ main {
 }
 .nav > a:hover { color: var(--text); background: var(--surface); }
 .mobile-menu-toggle {
-  order: 3;
+  position: absolute;
+  right: 0;
   flex-shrink: 0;
 }
 
@@ -218,7 +196,9 @@ main {
 .hero {
   padding: 72px 0 40px;
   width: 100%;
-  overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  min-height: calc(100vh - 64px);
 }
 .hero-inner {
   display: grid;
@@ -281,7 +261,6 @@ main {
   border-top: 1px solid var(--border);
   position: relative;
   width: 100%;
-  overflow-x: hidden;
 }
 .section h2 {
   font-size: 28px;
@@ -414,8 +393,6 @@ main {
   border-color: var(--border);
 }
 
-/* Theme Toggle */
-#themeToggle { width: 40px; height: 36px; }
 
 /* Responsive */
 @media (max-width: 900px) {
@@ -436,21 +413,16 @@ main {
     height: 56px;
   }
 
-  .theme-toggle-header {
-    order: 1;
-  }
-
   .mobile-menu-toggle {
-    order: 2;
-    margin-left: auto;
+    right: 0;
   }
 
-  /* Dropdown menu styling - aligned to right */
+  /* Dropdown menu styling - centered */
   .nav {
     position: absolute;
     top: 100%;
-    right: 0;
-    left: auto;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
     background: color-mix(in oklab, var(--bg) 95%, black 5%);
     border: 1px solid var(--border);
     border-top: none;
@@ -464,16 +436,14 @@ main {
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
     opacity: 0;
     visibility: hidden;
-    transform: translateY(-10px);
     transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
-    order: 3;
     justify-content: flex-start;
   }
 
   .nav.active {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateX(-50%) translateY(0);
   }
 
   .nav > a {
@@ -555,14 +525,6 @@ main {
     justify-items: center;
   }
 
-  /* Fix overflow/clipping issues */
-  .site-header {
-    overflow: visible;
-  }
-
-  .container {
-    overflow: visible;
-  }
 }
 
 /* Mobile-specific tweaks (JS sets data-device="mobile") */
