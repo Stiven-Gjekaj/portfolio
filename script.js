@@ -24,36 +24,6 @@ document.getElementById('year').textContent = new Date().getFullYear();
   });
 })();
 
-// Mobile menu toggle
-(function mobileMenu() {
-  const toggle = document.getElementById('mobileMenuToggle');
-  const nav = document.querySelector('.nav');
-
-  if (!toggle || !nav) return;
-
-  toggle.addEventListener('click', () => {
-    const isExpanded = toggle.getAttribute('aria-expanded') === 'true';
-    toggle.setAttribute('aria-expanded', !isExpanded);
-    nav.classList.toggle('active');
-  });
-
-  // Close menu when clicking a nav link (but not dropdown toggle)
-  nav.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      toggle.setAttribute('aria-expanded', 'false');
-      nav.classList.remove('active');
-    });
-  });
-
-  // Close menu when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!toggle.contains(e.target) && !nav.contains(e.target)) {
-      toggle.setAttribute('aria-expanded', 'false');
-      nav.classList.remove('active');
-    }
-  });
-})();
-
 // Animated background on scroll
 (function animatedBackground() {
   const updateScrollProgress = () => {
