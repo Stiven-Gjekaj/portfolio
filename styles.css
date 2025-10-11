@@ -79,6 +79,7 @@ body::before {
   align-items: center;
   justify-content: space-between;
   height: 64px;
+  position: relative;
 }
 .brand {
   font-weight: 700;
@@ -93,6 +94,34 @@ body::before {
   border-radius: 8px;
 }
 .nav a:hover { color: var(--text); background: var(--surface); }
+
+/* Mobile menu toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 60;
+}
+.mobile-menu-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--text);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-toggle[aria-expanded="true"] span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
 
 /* Hero */
 .hero { padding: 72px 0 40px; }
@@ -213,6 +242,60 @@ body::before {
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: 1fr; }
   .contact .row { grid-template-columns: 1fr; }
+
+  /* Show mobile menu toggle, hide desktop nav elements */
+  .mobile-menu-toggle { display: flex; }
+  .socials { display: none !important; }
+
+  /* Dropdown menu styling */
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: color-mix(in oklab, var(--bg) 95%, black 5%);
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 12px 12px;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px;
+    min-width: 200px;
+    gap: 4px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  }
+
+  .nav.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .nav a, .nav button {
+    width: 100%;
+    text-align: left;
+    padding: 10px 12px;
+  }
+
+  /* Center all content on mobile */
+  .hero-copy, .about-content, .section h2 {
+    text-align: center;
+  }
+
+  .actions {
+    justify-content: center;
+  }
+
+  .skills {
+    text-align: left;
+  }
+
+  .projects {
+    justify-items: center;
+  }
 }
 
 /* Mobile-specific tweaks (JS sets data-device="mobile") */
@@ -223,9 +306,6 @@ body::before {
 [data-device="mobile"] .lead { font-size: 16px; }
 [data-device="mobile"] .section { padding: 56px 0; }
 [data-device="mobile"] .btn { padding: 10px 14px; }
-[data-device="mobile"] .nav { flex-wrap: wrap; justify-content: center; gap: 8px; }
-[data-device="mobile"] .nav a { padding: 8px 10px; }
-[data-device="mobile"] .brand { display: none; }
 
 /* Mobile: float theme toggle bottom-left */
 /* Hide any header-embedded toggle; use floating one */
