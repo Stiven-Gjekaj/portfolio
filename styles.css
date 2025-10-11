@@ -172,6 +172,7 @@ main {
   align-items: center;
   width: 100%;
   max-width: 100%;
+  padding-left: 80px;
 }
 .hero-copy {
   min-width: 0;
@@ -372,6 +373,7 @@ main {
     grid-template-columns: 1fr;
     gap: 40px;
     width: 100%;
+    padding-left: 0;
   }
 
   .hero-copy h1 {
