@@ -133,6 +133,7 @@ const projects = [
     tags: ['React','Python','Apache','PostgreSQL'],
     demo: '',
     repo: 'https://github.com/Stiven-Gjekaj/Telemetra",
+  }
 ];
 
 function renderProjects() {
