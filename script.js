@@ -132,7 +132,7 @@ const projects = [
       'A real-time Twitch analytics platform that processes live events, detects anomalies, and provides visualizations.',
     tags: ['React','Python','Apache','PostgreSQL'],
     demo: '',
-    repo: 'https://github.com/Stiven-Gjekaj/Telemetra",
+    repo: 'https://github.com/Stiven-Gjekaj/Telemetra',
   }
 ];
 
