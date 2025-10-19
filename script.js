@@ -126,6 +126,13 @@ const projects = [
     demo: '',
     repo: 'https://github.com/Stiven-Gjekaj/Wattpad4You',
   },
+  {
+    title: "Telemetra",
+    description:
+      'A real-time Twitch analytics platform that processes live events, detects anomalies, and provides visualizations.',
+    tags: ['React','Python','Apache','PostgreSQL'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/Telemetra",
 ];
 
 function renderProjects() {
