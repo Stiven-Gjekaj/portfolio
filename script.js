@@ -133,6 +133,14 @@ const projects = [
     tags: ['React','Python','Apache','PostgreSQL'],
     demo: '',
     repo: 'https://github.com/Stiven-Gjekaj/Telemetra',
+  },
+  {
+    title: "MiruScript",
+    description:
+      'A minimalist programming language that compiles to C, featuring clean syntax, and a compiler pipeline built from scratch in C11.',
+    tags: ['C','Compiler','Custom Language','Open Source'],
+    demo: '',
+    repo: 'https://github.com/Stiven-Gjekaj/MiruScript',
   }
 ];
 
