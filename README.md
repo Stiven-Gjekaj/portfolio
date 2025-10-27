@@ -1,4 +1,4 @@
-# Stiven Gjekaj — Portfolio
+# Stiven Gjekaj - Portfolio
 
 Welcome! This repository contains my personal portfolio site. Here you can explore a selection of projects, learn a bit about me, and find ways to get in touch.
 
