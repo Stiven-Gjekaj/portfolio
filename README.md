@@ -6,7 +6,6 @@ Welcome! This repository contains my personal portfolio site. Here you can explo
 - About: a short introduction and skills snapshot
 - Projects: highlights with brief descriptions and tech used
 - Contact: quick ways to reach me
-- Theme: light/dark toggle for comfortable reading
 
 
 ## Quick Links
