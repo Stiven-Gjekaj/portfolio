@@ -175,6 +175,14 @@ const projects = [
     demo: "",
     repo: "https://github.com/Stiven-Gjekaj/PacketBrawl",
   },
+  {
+    title: "InertiaX",
+    description:
+      "A high-fidelity 2D car physics simulator that combines advanced physics modeling with real-time graphics visualization.",
+    tags: ["C++", "Simulator", "OpenGL", "Math & Physics", "CMake", "Multi-Platform"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/InertiaX",
+  },
 ];
 
 function renderProjects() {
