@@ -96,6 +96,14 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: "Clockwise",
+    description:
+      "An open-source alternative to Clockify, a desktop app for precise time logging and productivity analytics.",
+    tags: ["Python", "PyQt6", "GUI", "SQLite", "Open Source"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/Clockwise",
+  },
+  {
     title: "SmartSpend",
     description:
       "Full-stack expense tracking with CSV import, receipt OCR scanning, and ML-powered categorization.",
