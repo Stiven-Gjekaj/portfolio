@@ -96,6 +96,14 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: "SpeedyFibonacci",
+    description:
+      "Educational benchmark suite comparing 12 Fibonacci algorithms from naive recursion to fast doubling. Demonstrates O(2^n), O(n), and O(log n) complexity with real performance metrics and visualizations.",
+    tags: ["Python", "Benchmarking", "Algorithms", "NumPy", "Numba", "Cython", "Open Source"],
+    demo: "https://github.com/Stiven-Gjekaj/SpeedyFibonacci#-sample-output",
+    repo: "https://github.com/Stiven-Gjekaj/SpeedyFibonacci",
+  },
+  {
     title: "Clockwise",
     description:
       "An open-source alternative to Clockify, a desktop app for precise time logging and productivity analytics.",

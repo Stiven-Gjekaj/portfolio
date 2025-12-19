@@ -254,17 +254,36 @@ main {
 
 .skills {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+  gap: 32px;
   width: 100%;
 }
-.skills h3 { margin: 10px 0; }
-.skills ul {
-  margin: 0;
-  padding-left: 18px;
-  color: var(--muted);
+.skill-category h3 {
+  margin: 0 0 16px;
+  font-size: 16px;
+  color: var(--accent-300);
+}
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skill-tag {
+  display: inline-block;
+  background: color-mix(in oklab, var(--accent-500) 12%, transparent 88%);
+  border: 1px solid color-mix(in oklab, var(--accent-500) 25%, transparent 75%);
+  color: var(--accent-300);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  transition: all 0.2s ease;
+}
+.skill-tag:hover {
+  background: color-mix(in oklab, var(--accent-500) 20%, transparent 80%);
+  border-color: var(--accent-300);
 }
 
 /* Projects */
