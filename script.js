@@ -104,6 +104,14 @@ const projects = [
     repo: "https://github.com/Stiven-Gjekaj/SpeedyFibonacci",
   },
   {
+    title: "CardVault",
+    description:
+      "Professional ID card generation system with Spring Boot. Features admin approval workflows, PDF generation with QR codes, email notifications, and role-based access control.",
+    tags: ["Spring Boot", "Java", "MySQL", "Docker", "iText", "REST API", "Security"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/CardVault",
+  },
+  {
     title: "Clockwise",
     description:
       "An open-source alternative to Clockify, a desktop app for precise time logging and productivity analytics.",
