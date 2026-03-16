@@ -96,116 +96,116 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
-    title: "SpeedyFibonacci",
+    title: "MiruScript",
     description:
-      "Educational benchmark suite comparing 12 Fibonacci algorithms from naive recursion to fast doubling. Demonstrates O(2^n), O(n), and O(log n) complexity with real performance metrics and visualizations.",
-    tags: ["Python", "Benchmarking", "Algorithms", "NumPy", "Numba", "Cython", "Open Source"],
-    demo: "https://github.com/Stiven-Gjekaj/SpeedyFibonacci#-sample-output",
-    repo: "https://github.com/Stiven-Gjekaj/SpeedyFibonacci",
+      "A minimalist programming language that compiles to C, featuring clean syntax, recursive functions, and a complete compiler pipeline built from scratch in C11.",
+    tags: ["C", "Compiler", "Custom Language", "Open Source"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/MiruScript",
   },
   {
-    title: "CardVault",
+    title: "GoQuorra",
     description:
-      "Professional ID card generation system with Spring Boot. Features admin approval workflows, PDF generation with QR codes, email notifications, and role-based access control.",
-    tags: ["Spring Boot", "Java", "MySQL", "Docker", "iText", "REST API", "Security"],
+      "Lightweight, distributed job queue for Go built for reliability, observability, and scale — with Prometheus metrics, PostgreSQL persistence, and gRPC-based workers.",
+    tags: ["Go", "PostgreSQL", "gRPC", "Redis", "Docker"],
     demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/CardVault",
+    repo: "https://github.com/Stiven-Gjekaj/GoQuorra",
   },
   {
-    title: "Clockwise",
+    title: "WorkDelegateN1ko",
     description:
-      "An open-source alternative to Clockify, a desktop app for precise time logging and productivity analytics.",
-    tags: ["Python", "PyQt6", "GUI", "SQLite", "Open Source"],
+      "AI-powered technical documentation generator that uses Claude AI to automatically produce clear, structured docs from codebases — saving hours of manual writing.",
+    tags: ["Python", "Claude AI", "AI", "Documentation", "Automation"],
     demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/Clockwise",
+    repo: "https://github.com/Stiven-Gjekaj/WorkDelegateN1ko",
   },
   {
     title: "SmartSpend",
     description:
-      "Full-stack expense tracking with CSV import, receipt OCR scanning, and ML-powered categorization.",
-    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Docker"],
+      "Full-stack expense tracker with CSV import, receipt OCR scanning, manual entry, and ML-powered automatic categorization.",
+    tags: ["Python", "FastAPI", "React", "TypeScript", "PostgreSQL", "Docker", "OCR"],
     demo: "",
     repo: "https://github.com/Stiven-Gjekaj/SmartSpend",
   },
   {
     title: "Knot Labs",
     description:
-      "Modular social media sandbox with media classification, face recognition, and full-text search.",
-    tags: ["Python", "Machine Learning", "FAISS", "Search"],
+      "A complete social media sandbox platform built for experimentation — featuring ML-powered search, media classification, face recognition, and full-text indexing with FAISS.",
+    tags: ["Python", "Machine Learning", "FAISS", "Search", "Full-Stack"],
     demo: "",
     repo: "https://github.com/Stiven-Gjekaj/Knot-Labs",
   },
   {
-    title: "GoQuorra",
-    description:
-      "Lightweight, distributed job queue for Go with reliability, observability, and Prometheus metrics.",
-    tags: ["Go", "PostgreSQL", "gRPC", "Redis", "Docker"],
-    demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/GoQuorra",
-  },
-  {
-    title: "RogueBit",
-    description:
-      "Turn-based roguelike dungeon crawler with procedural generation and terminal-style graphics.",
-    tags: ["C#", ".NET 8", "Game", "Roguelike"],
-    demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/RogueBit",
-  },
-  {
-    title: "AI Connect 4",
-    description:
-      "Connect 4 with Minimax + alpha-beta pruning; hints, undo, and adjustable difficulty.",
-    tags: ["JavaScript", "Game", "AI", "Minimax"],
-    demo: "https://stiven-gjekaj.github.io/AI-Connect4/",
-    repo: "https://github.com/Stiven-Gjekaj/AI-Connect4",
-  },
-  {
-    title: "Wattpad4You",
-    description:
-      "CLI tool that downloads public Wattpad stories and compiles them into polished PDFs with bundled fonts.",
-    tags: ["Python", "CLI", "PDF"],
-    demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/Wattpad4You",
-  },
-  {
     title: "Telemetra",
     description:
-      "A real-time Twitch analytics platform that processes live events, detects anomalies, and provides visualizations.",
-    tags: ["React", "Python", "Apache", "PostgreSQL"],
+      "Real-time Twitch analytics platform that ingests live events, detects anomalies, and renders live visualizations across a React frontend and Python backend.",
+    tags: ["React", "Python", "Apache", "PostgreSQL", "Real-Time"],
     demo: "",
     repo: "https://github.com/Stiven-Gjekaj/Telemetra",
   },
   {
-    title: "MiruScript",
+    title: "InertiaX",
     description:
-      "A minimalist programming language that compiles to C, featuring clean syntax, and a compiler pipeline built from scratch in C11.",
-    tags: ["C", "Compiler", "Custom Language", "Open Source"],
+      "High-fidelity 2D car physics simulator combining advanced physics modeling with real-time graphics — built in C++ with OpenGL and cross-platform CMake support.",
+    tags: ["C++", "Simulator", "OpenGL", "Math & Physics", "CMake", "Multi-Platform"],
     demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/MiruScript",
-  },
-  {
-    title: "Invox",
-    description:
-      "Modern invoice maker built entirely in vanilla JavaScript with no framework dependencies. ",
-    tags: ["JavaScript", "PDF", "Vanilla", "Client-Side"],
-    demo: "https://stiven-gjekaj.github.io/Invox/",
-    repo: "https://github.com/Stiven-Gjekaj/Invox",
+    repo: "https://github.com/Stiven-Gjekaj/InertiaX",
   },
   {
     title: "PacketBrawl",
     description:
-      "Fast-paced, turn-based LAN multiplayer battler where 2–6 players connect over TCP/IP, choose unique hero classes, and battle in real-time. ",
-    tags: ["C#", "Multiplayer", "Game", "TCP/IP", "Terminal UI"],
+      "Fast-paced, turn-based LAN multiplayer battler where 2–6 players connect over TCP/IP, choose unique hero classes, and battle in real-time with a terminal UI.",
+    tags: ["C#", "Multiplayer", "Game", "TCP/IP", "Terminal UI", ".NET"],
     demo: "",
     repo: "https://github.com/Stiven-Gjekaj/PacketBrawl",
   },
   {
-    title: "InertiaX",
+    title: "CardVault",
     description:
-      "A high-fidelity 2D car physics simulator that combines advanced physics modeling with real-time graphics visualization.",
-    tags: ["C++", "Simulator", "OpenGL", "Math & Physics", "CMake", "Multi-Platform"],
+      "ID card generation platform with admin approval workflows, PDF generation with QR codes, email notifications, and role-based access control.",
+    tags: ["HTML", "JavaScript", "PDF", "QR Codes", "Workflows", "Role-Based Access"],
     demo: "",
-    repo: "https://github.com/Stiven-Gjekaj/InertiaX",
+    repo: "https://github.com/Stiven-Gjekaj/CardVault",
+  },
+  {
+    title: "background-remover",
+    description:
+      "In-browser background removal tool powered by MediaPipe Selfie Segmentation. Runs entirely client-side — no uploads, no server, no privacy concerns.",
+    tags: ["JavaScript", "MediaPipe", "ML", "Canvas API", "Client-Side"],
+    demo: "https://stiven-gjekaj.github.io/background-remover/",
+    repo: "https://github.com/Stiven-Gjekaj/background-remover",
+  },
+  {
+    title: "AI Connect 4",
+    description:
+      "Connect 4 with an unbeatable AI opponent using Minimax + alpha-beta pruning. Features move hints, undo, and adjustable difficulty.",
+    tags: ["JavaScript", "Game", "AI", "Minimax", "Alpha-Beta Pruning"],
+    demo: "https://stiven-gjekaj.github.io/AI-Connect4/",
+    repo: "https://github.com/Stiven-Gjekaj/AI-Connect4",
+  },
+  {
+    title: "RogueBit",
+    description:
+      "Turn-based roguelike dungeon crawler with procedural level generation, terminal-style graphics via SadConsole, and GoRogue-powered pathfinding.",
+    tags: ["C#", ".NET 8", "Game", "Roguelike", "Procedural Generation"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/RogueBit",
+  },
+  {
+    title: "Art Museum",
+    description:
+      "A sleek single-page viewer powered by The Met Collection API, with modern light/dark gradients, smooth animations, and strong accessibility throughout.",
+    tags: ["JavaScript", "API Integration", "Accessibility", "Single-Page App"],
+    demo: "https://stiven-gjekaj.github.io/art-museum/",
+    repo: "https://github.com/Stiven-Gjekaj/art-museum",
+  },
+  {
+    title: "Invox",
+    description:
+      "Modern invoice maker built entirely in vanilla JavaScript with no framework dependencies — runs fully in the browser with PDF export.",
+    tags: ["JavaScript", "PDF", "Vanilla JS", "Client-Side"],
+    demo: "https://stiven-gjekaj.github.io/Invox/",
+    repo: "https://github.com/Stiven-Gjekaj/Invox",
   },
 ];
 
