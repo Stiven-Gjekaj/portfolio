@@ -136,6 +136,14 @@ const projects = [
     repo: "https://github.com/Stiven-Gjekaj/MarkdownConverter",
   },
   {
+    title: "Clockwise",
+    description:
+      "An open-source alternative to Clockify — a desktop app for precise time logging and productivity analytics.",
+    tags: ["Python", "Desktop App", "Productivity", "Open Source"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/Clockwise",
+  },
+  {
     title: "MiruScript",
     description:
       "A minimalist programming language that compiles to C, featuring clean syntax, recursive functions, and a complete compiler pipeline built from scratch in C11.",
