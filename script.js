@@ -96,6 +96,46 @@ document.getElementById("year").textContent = new Date().getFullYear();
 // Projects data & render
 const projects = [
   {
+    title: "Verdikt",
+    description:
+      "A game-agnostic mod conflict analysis engine that ingests mod archives, builds a per-mod file manifest, constructs a conflict graph, and scores and reports conflict severity.",
+    tags: ["Rust", "CLI", "Static Analysis", "Modding", "Open Source"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/Verdikt",
+  },
+  {
+    title: "Mnemis",
+    description:
+      "A story-aware AI companion plugin for Obsidian that lives inside your vault — it learns the world you're building and helps you write within it.",
+    tags: ["TypeScript", "Obsidian", "AI", "Plugin", "Writing"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/Mnemis-Obsidian-Plugin",
+  },
+  {
+    title: "Aurora",
+    description:
+      "A research assistant that pulls from Wikipedia and arXiv, ranks and summarizes results, then persists everything to a SQLite knowledge base — building a graph of how topics relate over time.",
+    tags: ["Python", "AI", "Research", "SQLite", "Knowledge Graph"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/Aurora",
+  },
+  {
+    title: "ClutchCoach",
+    description:
+      "An AI-powered CS2 voice coaching assistant — speak to it during matches and get real-time coaching to help you clutch the round.",
+    tags: ["Python", "AI", "Voice", "Gaming"],
+    demo: "",
+    repo: "https://github.com/Stiven-Gjekaj/ClutchCoach",
+  },
+  {
+    title: "MarkdownConverter",
+    description:
+      "A markdown ↔ rich text converter with a sketchy, hand-drawn aesthetic — convert between formats entirely in the browser.",
+    tags: ["JavaScript", "Markdown", "Client-Side", "Tool"],
+    demo: "https://stiven-gjekaj.github.io/MarkdownConverter/",
+    repo: "https://github.com/Stiven-Gjekaj/MarkdownConverter",
+  },
+  {
     title: "MiruScript",
     description:
       "A minimalist programming language that compiles to C, featuring clean syntax, recursive functions, and a complete compiler pipeline built from scratch in C11.",
